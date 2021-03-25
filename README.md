@@ -35,7 +35,7 @@ In nightwatch.conf.js, you will need to setup a globals_path where you setup the
             browserName: 'chrome',
             'goog:chromeOptions': {
               args: [
-                '--load-extension=../nightwatch-bugreplay/node_modules/bugreplay-automation/extension/ ',
+                '--load-extension=node_modules/bugreplay-automation/extension/',
                 '--auto-select-desktop-capture-source=Record This Window'
               ]
           }
