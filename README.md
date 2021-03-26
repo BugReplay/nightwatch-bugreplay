@@ -22,13 +22,13 @@ In nightwatch.conf.js, you will need to setup a globals_path where you setup the
         default : {
           // ...
           globals: {
-            apiKey: '73H/VQbjdwu8IRZTtF5AIxVQF8p+oUMKW2bg/hNnG40=',
+            apiKey: 'YOUR_BUGREPLAY_API_KEY_GOES_HERE',
             saveSuccessfulTests: true, // the default is false
             test_run_id : process.env.TEST_RUN_ID || new Date().toISOString(),  // Assign a unique test run ID for each run. Defaults to current timestamp.
-            project_id: 875,  // OPTIONAL: Your BugReplay ProjectID you want your reports to save. Defaults to your active project ID.
-            assigned_user_id: 915,  // OPTIONAL: UserID of your BugReplay team member you want the bugreport to assign. Default is unassigned.
-            tags: 'automation, nightwatch, chrome',   // OPTIONAL: tags you want to assign to the bugreport. 
-            status_id: 3209   // OPTIONAL: assign the status id by default. Default is New.
+            project_id: 'YOUR_BUGREPLAY_PROJECT_ID',  // OPTIONAL: Your BugReplay ProjectID you want your reports to save. Defaults to your active project ID.
+            assigned_user_id: 'YOUR_BUGREPLAY_ASSIGNEE_ID',  // OPTIONAL: UserID of your BugReplay team member you want the bugreport to assign. Default is unassigned.
+            tags: 'automation, nightwatch, chrome',   // OPTIONAL: comma separated tags you want to assign to the bugreport. 
+            status_id: 'YOUR_BUGREPLAY_STATUS_ID'   // OPTIONAL: assign the status id by default. Default is New.
           },
           desiredCapabilities: {
             // ...
