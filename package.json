@@ -20,8 +20,8 @@
     "url": "git+https://github.com/BugReplay/nightwatch-bugreplay.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "BugReplay Inc.",
+  "license": "SEE LICENSE in LICENSE",
   "dependencies": {
     "bugreplay-automation": "^1.0.0"
   },
