@@ -1,6 +1,6 @@
 {
   "name": "nightwatch-bugreplay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automatically record videos of your Nightwatch tests to BugReplay with timesynced network and JS console logs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
