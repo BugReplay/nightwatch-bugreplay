@@ -113,5 +113,61 @@ And lastly, in each of your testsuite within your src_folders specify the before
 
 After this configuration your tests will automatically be recorded to video, uploaded to BugReplay, and ready for playback alongside the timesynced JS console and network traffic logs.
 
+## MS Edge (Chromium)
+While the above configuration is mostly focused on capturing your automated bug reports on chrome, you can setup your tests to run on MS Edge (chromium) browser.
+
+To get started with MS Edge, install selenium server along with the nightwatch-bugreplay package
+
+    npm install --save-dev selenium-server nightwatch-bugreplay 
+
+Check the version of your MS Edge browser and then download the appropriate version of MS Edge driver from
+
+    https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+
+Next, you will need to configure selenium-server and MS Edge browser capability in your nightwatch config file `nightwatch.config.js`
+
+    //nightwatch.conf.js
+    const seleniumServer = require("selenium-server");
+
+    module.exports = {
+      src_folders : ["tests"],
+      // ...
+      globals_path : 'global.conf.js', // Specify a global config file
+
+      selenium: {
+        "start_process": true,                // tells nightwatch to start/stop the selenium process
+        "server_path": seleniumServer.path,
+        "host": "127.0.0.1",
+        "port": 4444,                         // standard selenium port
+        "cli_args": {
+          "webdriver.edge.driver" : 'LOCATION_OF_MS_EDGE_DRIVER'  // location of your msedgedriver executable file
+        }
+      },
+      // ...
+      test_settings : {
+        // ...
+        default : {
+          // ...
+          globals: {
+            // ...
+          },
+          desiredCapabilities: {
+            browserName: 'MicrosoftEdge',
+            'ms:edgeOptions': {
+              w3c: false,
+              args: [
+                '--load-extension=node_modules/bugreplay-automation/extension/ ',
+                '--auto-select-desktop-capture-source=Record This Window'
+              ]
+            }
+          }
+          // ...
+        }
+        // ...
+      }
+      // ...    
+    }
+
+
 ## Limitations
-This currently only works for chromedriver. We're looking to expand to other browsers in the future.
+Currently, we do not support Firefox browser.
